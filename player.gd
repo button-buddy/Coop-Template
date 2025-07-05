@@ -14,7 +14,8 @@ func _ready() -> void:
 	
 	$"Player ID".text = name
 	GameManager.player_info[int(name)] = {"spawnpoint":syncPos, "node":self}
-
+	NetworkManager.player_disconnected.connect(_on_player_disconnected)
+	
 func _physics_process(_delta: float) -> void:
 	
 	if not is_multiplayer_authority():
@@ -40,3 +41,10 @@ func _physics_process(_delta: float) -> void:
 
 	syncPos = global_position
 	move_and_slide()
+
+
+func _on_player_disconnected(pid) -> void:
+	if pid == int(name):
+		GameManager.player_info.erase(pid)
+		queue_free()
+	pass
