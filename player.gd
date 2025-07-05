@@ -2,17 +2,24 @@ extends CharacterBody2D
 
 
 @export var speed = 400.0
-@onready var player_id: Label = $"Player ID"
 
-#func _enter_tree():
-	#set_multiplayer_authority(int(str(name)))
+var syncPos := Vector2(0.0, 0.0)
 
-func _ready() -> void:
-	player_id.text = name
+func _enter_tree():
+	# Doing this here instead of on ready prevents bugs.
+	set_multiplayer_authority(int(str(name)))
+
+func _ready() -> void:	
+	syncPos = global_position
+	
+	$"Player ID".text = name
+	GameManager.player_info[int(name)] = {"spawnpoint":syncPos, "node":self}
 
 func _physics_process(_delta: float) -> void:
 	
 	if not is_multiplayer_authority():
+		# Making it 30fps (save bandwidth) and lerping with local fps to hide the stutter
+		position = lerp(position, syncPos, 0.5)
 		return
 	
 	velocity = Vector2.ZERO # The player's movement vector.
@@ -31,5 +38,5 @@ func _physics_process(_delta: float) -> void:
 	else:
 		$AnimatedSprite2D.stop()
 
-	
+	syncPos = global_position
 	move_and_slide()

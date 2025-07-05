@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dckmy2r1vu3re"]
+
+[ext_resource type="Script" uid="uid://d0wk4rk6f43ec" path="res://level.gd" id="1_vonw3"]
+[ext_resource type="PackedScene" uid="uid://bbb6uhyhkrkuo" path="res://player.tscn" id="2_oi3di"]
+
+[node name="Level" type="Node"]
+script = ExtResource("1_vonw3")
+player_scene = ExtResource("2_oi3di")
+
+[node name="Spawner" type="Node" parent="."]
+
+[node name="Spawn1" type="Marker2D" parent="Spawner"]
+position = Vector2(440, 505)
+
+[node name="Spawn2" type="Marker2D" parent="Spawner"]
+position = Vector2(1105, 671)
+
+[node name="Spawn3" type="Marker2D" parent="Spawner"]
+position = Vector2(713, 166)
+
+[node name="Spawn4" type="Marker2D" parent="Spawner"]
+position = Vector2(1325, 330)
+
+[node name="Players" type="Node" parent="."]
+
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="Players"]
+_spawnable_scenes = PackedStringArray("uid://bbb6uhyhkrkuo")
+spawn_path = NodePath("..")

@@ -1,9 +1,9 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://33p8pjnjvodd"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://33p8pjnjvodd"]
 
 [ext_resource type="FontFile" uid="uid://c5ujn4hcon3jg" path="res://assets/fonts/Inter_18pt-SemiBold.ttf" id="1_5x3i2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5x3i2"]
-bg_color = Color(0.2, 0.266667, 0.333333, 1)
+bg_color = Color(0.8, 0.8, 0.8, 1)
 border_width_bottom = 16
 border_color = Color(0, 0, 0, 1)
 border_blend = true
@@ -12,40 +12,40 @@ corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5x3i2"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wl1kw"]
-bg_color = Color(0.2, 0.266667, 0.333333, 1)
-border_width_top = 16
-border_color = Color(0.8, 0.8, 0.8, 0)
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 16
+border_color = Color(0, 0, 0, 1)
+border_blend = true
 corner_radius_top_left = 32
 corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lu33j"]
-bg_color = Color(0.2, 0.266667, 0.333333, 1)
-border_width_top = 16
-border_color = Color(1, 1, 1, 0)
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 16
+border_color = Color(0, 0, 0, 1)
+border_blend = true
 corner_radius_top_left = 32
 corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
 [resource]
-Button/colors/font_color = Color(0.597176, 0.597176, 0.597176, 1)
+Button/colors/font_color = Color(0.133333, 0.133333, 0.133333, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
-Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
-Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
-Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-Button/colors/font_outline_color = Color(0, 0, 0, 1)
-Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(0.133333, 0.133333, 0.133333, 1)
+Button/colors/font_hover_color = Color(0.133333, 0.133333, 0.133333, 1)
+Button/colors/font_hover_pressed_color = Color(0.133333, 0.133333, 0.133333, 1)
+Button/colors/font_outline_color = Color(0.133333, 0.133333, 0.133333, 1)
+Button/colors/font_pressed_color = Color(0.231373, 0.415686, 0.666667, 1)
 Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
-Button/colors/icon_focus_color = Color(1, 1, 1, 1)
-Button/colors/icon_hover_color = Color(1, 1, 1, 1)
-Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
-Button/colors/icon_normal_color = Color(1, 1, 1, 1)
-Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_focus_color = Color(0.133333, 0.133333, 0.133333, 1)
+Button/colors/icon_hover_color = Color(0.133333, 0.133333, 0.133333, 1)
+Button/colors/icon_hover_pressed_color = Color(0.133333, 0.133333, 0.133333, 1)
+Button/colors/icon_normal_color = Color(0.133333, 0.133333, 0.133333, 1)
+Button/colors/icon_pressed_color = Color(0.133333, 0.133333, 0.133333, 1)
 Button/constants/align_to_largest_stylebox = 0
 Button/constants/h_separation = 4
 Button/constants/icon_max_width = 0
@@ -53,12 +53,12 @@ Button/constants/outline_size = 0
 Button/font_sizes/font_size = 64
 Button/fonts/font = ExtResource("1_5x3i2")
 Button/styles/disabled = SubResource("StyleBoxFlat_5x3i2")
-Button/styles/focus = SubResource("StyleBoxEmpty_5x3i2")
-Button/styles/hover = SubResource("StyleBoxFlat_5x3i2")
-Button/styles/hover_pressed = SubResource("StyleBoxFlat_wl1kw")
+Button/styles/focus = SubResource("StyleBoxFlat_wl1kw")
+Button/styles/hover = SubResource("StyleBoxFlat_wl1kw")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_lu33j")
 Button/styles/normal = SubResource("StyleBoxFlat_5x3i2")
 Button/styles/pressed = SubResource("StyleBoxFlat_lu33j")
-Label/colors/font_color = Color(0.255376, 0.334575, 0.413837, 1)
+Label/colors/font_color = Color(0.878431, 0.878431, 0.878431, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 0)
 Label/font_sizes/font_size = 64
 Label/fonts/font = ExtResource("1_5x3i2")

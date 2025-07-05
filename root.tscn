@@ -1,24 +1,26 @@
 [gd_scene load_steps=6 format=3 uid="uid://dgh5mt7w2shk1"]
 
 [ext_resource type="Script" uid="uid://c7t18ge8j1f1f" path="res://root.gd" id="1_pyidc"]
+[ext_resource type="PackedScene" uid="uid://dckmy2r1vu3re" path="res://level.tscn" id="2_28aoi"]
 [ext_resource type="Theme" uid="uid://33p8pjnjvodd" path="res://assets/theme.tres" id="2_vvh5c"]
-
-[sub_resource type="Gradient" id="Gradient_7vrkn"]
-offsets = PackedFloat32Array(0.434426, 1)
-colors = PackedColorArray(0.913725, 0.454902, 0.317647, 1, 0.973255, 0.693826, 0.60989, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_fu7sn"]
-gradient = SubResource("Gradient_7vrkn")
-fill_from = Vector2(0.532258, 1)
-fill_to = Vector2(0.489247, 0)
+[ext_resource type="Texture2D" uid="uid://f423j2srnckj" path="res://assets/Bg.png" id="3_28aoi"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jix8l"]
-texture = SubResource("GradientTexture2D_fu7sn")
+texture = ExtResource("3_28aoi")
 
 [node name="Root" type="Node"]
 script = ExtResource("1_pyidc")
+level_scene = ExtResource("2_28aoi")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Levels" type="Node" parent="."]
+
+[node name="LevelSpawner" type="MultiplayerSpawner" parent="Levels"]
+_spawnable_scenes = PackedStringArray("uid://dckmy2r1vu3re")
+spawn_path = NodePath("..")
+spawn_limit = 1
+
+[node name="Background" type="Panel" parent="."]
+modulate = Color(0.241156, 0.241156, 0.241156, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -94,11 +96,17 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 194.0
-offset_top = 43.0
+offset_top = 134.0
 offset_right = 1686.0
-offset_bottom = 354.0
+offset_bottom = 445.0
 grow_horizontal = 2
 theme = ExtResource("2_vvh5c")
 theme_override_font_sizes/font_size = 256
 text = "Game Name"
 horizontal_alignment = 1
+
+[node name="ConnectionTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="ConnectionTimer" to="." method="_on_connection_timer_timeout"]
